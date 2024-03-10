@@ -9,9 +9,7 @@ public class PalindromeChecker {
         String num = scan.nextLine();
         String reverseNum = "";
         int numLength = num.length();
-        for (int i = (numLength - 1); i >= 0; i--) {
-            reverseNum = reverseNum + num.charAt(i);
-        }
+        for (int i = (numLength - 1); i >= 0; i--) reverseNum += num.charAt(i);
         if (num.equals(reverseNum)) {
             System.out.println(num + " is Palindrome number.");
         } else {
