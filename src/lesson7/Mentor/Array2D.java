@@ -1,7 +1,6 @@
 package lesson7.Mentor;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Array2D {
     public static void main(String[] args) {
