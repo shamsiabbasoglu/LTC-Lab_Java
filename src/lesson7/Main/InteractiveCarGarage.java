@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class InteractiveCarGarage {
     public static void main(String[] args) {
-        int numberOfParkingSpaces = 5;
+        int parkingSpaces = 5;
         int carAttribute = 3;
 
         //garage array
-        String[][] garage = new String[numberOfParkingSpaces][carAttribute];
+        String[][] garage = new String[parkingSpaces][carAttribute];
 
         //make garage empty
-        for (int i = 0; i < numberOfParkingSpaces; i++) {
+        for (int i = 0; i < parkingSpaces; i++) {
             for (int j = 0; j < carAttribute; j++) {
                 garage[i][j] = "Empty";
             }
@@ -21,7 +21,7 @@ public class InteractiveCarGarage {
         int choice;
 
         do {
-            System.out.println("\nCar Garage Menu:");
+            System.out.println("Car Garage Menu:");
             System.out.println("1. Park a car");
             System.out.println("2. Display garage");
             System.out.println("3. Exit");
@@ -35,8 +35,8 @@ public class InteractiveCarGarage {
                     boolean garageFull = true;
 
                     //check if garage is full
-                    for (int i = 0; i < garage.length; i++) {
-                        if (garage[i][0].equals("Empty")) {
+                    for (String[] string : garage) {
+                        if (string[0].equals("Empty")) {
                             garageFull = false;
                             break;
                         }
@@ -45,7 +45,7 @@ public class InteractiveCarGarage {
                     //warn user if garage is full
                     if (garageFull) {
                         System.out.println("Warning: The garage is full. Cannot park more cars.");
-                        continue;
+                        break;
                     }
 
                     //park initialize
@@ -54,7 +54,7 @@ public class InteractiveCarGarage {
 
                     if (parkingSpace < 1 || parkingSpace > garage.length) {
                         System.out.println("Invalid parking space number. Please enter a valid parking space.");
-                        continue;
+                        break;
                     }
 
                     //check if park space occupied
@@ -80,7 +80,7 @@ public class InteractiveCarGarage {
                     break;
 
                 case 2:
-                    System.out.println("\nCurrent state of the car garage:");
+                    System.out.println("Current state of the car garage:");
 
                     for (int i = 0; i < garage.length; i++) {
                         System.out.print("Parking space " + (i + 1) + ": ");
