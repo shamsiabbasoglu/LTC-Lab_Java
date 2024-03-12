@@ -1,7 +1,4 @@
 package lesson8.Main;
-
-import java.util.Scanner;
-
 public class NormalLevelTasks {
     public static void main(String[] args) {
         //Task 1
