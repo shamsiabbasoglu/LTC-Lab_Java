@@ -23,7 +23,7 @@ public class StringArray {
             System.out.println("Enter the column (1-" + array.length + ") where you want to place the string:");
             col = scanner.nextInt();
 
-            if (row >= 0 && row < 3 && col >= 0 && col < 3) {
+            if (row >= 1 && row < 4 && col >= 1 && col < 4) {
                 break;
             } else {
                 System.out.println("Invalid row or column. Please enter valid value.");
