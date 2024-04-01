@@ -1,7 +1,5 @@
 package lesson11.Main;
 
-import java.util.Scanner;
-
 public class BankAccount {
     static int totalAccounts;
     String accountHolder;
