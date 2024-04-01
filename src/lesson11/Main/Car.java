@@ -9,9 +9,14 @@ public class Car {
         this.model = model;
     }
 
+    @Override
+    public String toString() {
+        return "My car is: " + make + " " + model;
+    }
+
     public static void main(String[] args) {
         Car car = new Car("Toyota", "Camry");
 
-        System.out.println("My car is: " + car.make + " " + car.model);
+        System.out.println(car);
     }
 }
