@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BigNumberChecker {
     public static void main(String[] args) {
-        System.out.println("3 tam eded yazın: ");
+        System.out.println("Give 3 integer: ");
         Scanner src = new Scanner(System.in);
         int a = src.nextInt();
         int b = src.nextInt();
