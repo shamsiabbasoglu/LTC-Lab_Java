@@ -19,14 +19,6 @@ public class Contact {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
