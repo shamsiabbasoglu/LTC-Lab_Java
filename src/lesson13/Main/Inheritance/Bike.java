@@ -8,6 +8,7 @@ public class Bike extends Vehicle {
         this.numWheels = numWheels;
     }
 
+    @Override
     public void display() {
         super.display();
         System.out.println("Number of wheels: " + numWheels);
