@@ -1,13 +1,16 @@
 package lesson13.Mentor.Company;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 class Worker {
     private final String name;
-    private final String birthDate;
+    private final LocalDate birthDate;
     private final String endOfContract;
 
     public Worker(String name, String birthDate, String endOfContract) {
         this.name = name;
-        this.birthDate = birthDate;
+        this.birthDate = LocalDate.parse(birthDate);
         this.endOfContract = endOfContract;
     }
 
@@ -15,7 +18,7 @@ class Worker {
         return name;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -23,7 +26,14 @@ class Worker {
         return endOfContract;
     }
 
-    public void retire() {
-        System.out.println(name + " has retired.");
+    public void retirementCalculator() {
+        //Assume retirement age is 65
+        int retirementAge = 65;
+        LocalDate currentDate = LocalDate.now();
+        LocalDate retirementDate = birthDate.plusYears(retirementAge);
+        Period periodUntilRetirement = Period.between(currentDate, retirementDate);
+        System.out.println("Remaining " + periodUntilRetirement.getYears() + " years, " +
+                periodUntilRetirement.getMonths() + " months, " + periodUntilRetirement.getDays() + " days until " +
+                "retirement for " + getName());
     }
 }
