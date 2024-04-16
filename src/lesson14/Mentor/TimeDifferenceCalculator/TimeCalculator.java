@@ -5,9 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 public class TimeCalculator {
     public void calculateDifference(int hour1, int minute1, int hour2, int minute2) {
-        LocalTime time1 = LocalTime.of(hour1, minute1);
-        LocalTime time2 = LocalTime.of(hour2, minute2);
-
         int hourDifference = Math.abs(hour2 - hour1);
         int minuteDifference = Math.abs(minute2 - minute1);
 
