@@ -23,7 +23,7 @@ public class FreshProduce implements Product {
 
     @Override
     public double getCost() {
-        return unitPrice * amount;
+        return getUnitPrice() * getAmount();
     }
 
     @Override

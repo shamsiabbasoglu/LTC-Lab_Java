@@ -23,7 +23,7 @@ public class Meat implements Product {
 
     @Override
     public double getCost() {
-        return unitPrice * amount;
+        return getUnitPrice() * getAmount();
     }
 
     @Override

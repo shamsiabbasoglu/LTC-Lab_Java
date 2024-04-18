@@ -23,7 +23,7 @@ public class Diary implements Product{
 
     @Override
     public double getCost() {
-        return unitPrice * amount;
+        return getUnitPrice() * getAmount();
     }
 
     @Override
