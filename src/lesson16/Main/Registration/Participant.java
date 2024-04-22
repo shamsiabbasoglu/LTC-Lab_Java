@@ -26,7 +26,7 @@ public class Participant {
         return email;
     }
 
-    public void displayParticipants() throws IOException {
+    public void displayParticipants() {
         String FILE_NAME = "C:\\Users\\Shamsi\\Documents\\participants.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
