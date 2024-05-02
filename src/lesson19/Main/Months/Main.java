@@ -21,7 +21,6 @@ public class Main {
             case MARCH, APRIL, MAY -> Season.SPRING;
             case JUNE, JULY, AUGUST -> Season.SUMMER;
             case SEPTEMBER, OCTOBER, NOVEMBER -> Season.AUTUMN;
-            default -> throw new IllegalArgumentException("Invalid month");
         };
     }
 }
