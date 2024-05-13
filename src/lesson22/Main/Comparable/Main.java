@@ -21,7 +21,7 @@ public class Main {
         }
 
         System.out.println();
-        books.sort(new Comparator<Book>() {
+        books.sort(new Comparator<>() {
             @Override
             public int compare(Book o1, Book o2) {
                 if (o1.getPrice() == o2.getPrice()) {

@@ -14,7 +14,7 @@ public class Main {
         students.add(student2);
         students.add(student3);
 
-        students.sort(new Comparator<Student>() {
+        students.sort(new Comparator<>() {
             @Override
             public int compare(Student o1, Student o2) {
                 return Integer.compare(o1.getGrade(), o2.getGrade());
