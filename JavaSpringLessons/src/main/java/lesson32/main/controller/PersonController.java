@@ -5,42 +5,54 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/persons")
 public class PersonController {
-    private final List<PersonDto> persons = new ArrayList<>();
+    private final List<PersonDto> personList = new ArrayList<>();
+    private final AtomicLong idCounter = new AtomicLong();
 
-    @PostMapping("/persons")
+    @PostMapping
     public String addPerson(@RequestBody PersonDto person) {
-        persons.add(person);
+        person.setId(idCounter.incrementAndGet());
+        personList.add(person);
         return person.getFirstName() + " " + person.getLastName() + " added successfully";
     }
 
-    @GetMapping("/persons")
+    @GetMapping
     public List<PersonDto> getPersons() {
-        return persons;
+        return personList;
     }
 
-    @DeleteMapping("/persons{id}")
-    public String deletePerson(@PathVariable Long id) {
-        persons.removeIf(person -> person.getId().equals(id));
-        return "Person deleted successfully";
-    }
-
-    @GetMapping("/persons{id}")
+    @GetMapping("/{id}")
     public PersonDto retrievePerson(@PathVariable Long id) {
-        return persons.stream().filter(person -> person.getId().equals(id)).findFirst().orElse(null);
+        return personList.stream()
+                .filter(person -> person.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
-    @PutMapping("/persons{id}")
-    public String updatePerson(@PathVariable Long id, @RequestBody PersonDto person) {
-        PersonDto p = retrievePerson(id);
-        if (p != null) {
-            persons.add(person);
-            return "Person updated successfully";
+    @DeleteMapping("/{id}")
+    public String deletePerson(@PathVariable Long id) {
+        PersonDto personToDelete = retrievePerson(id);
+        if (personToDelete != null) {
+            personList.remove(personToDelete);
+            return personToDelete.getFirstName() + " " + personToDelete.getLastName() + " deleted successfully";
         } else {
-            return "Person not found";
+            return "Person with id " + id + " not found";
         }
+    }
+
+    @PutMapping("/{id}")
+    public String updatePerson(@PathVariable Long id, @RequestBody PersonDto personDto) {
+        PersonDto existingPerson = retrievePerson(id);
+        if (existingPerson != null) {
+            existingPerson.setFirstName(personDto.getFirstName());
+            existingPerson.setLastName(personDto.getLastName());
+            existingPerson.setAge(personDto.getAge());
+            return existingPerson.getFirstName() + " " + existingPerson.getLastName() + " updated successfully";
+        }
+        return "Person with id " + id + " not found";
     }
 }

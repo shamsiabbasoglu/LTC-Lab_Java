@@ -2,14 +2,10 @@ package lesson32.main.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@RequiredArgsConstructor
+@Data
 public class PersonDto {
+    private Long id;
     private String firstName;
     private String lastName;
     private Integer age;
-    private Long id;
 }
