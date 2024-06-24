@@ -14,7 +14,7 @@ public class PersonController {
     @PostMapping("/persons")
     public String addPerson(@RequestBody PersonDto person) {
         persons.add(person);
-        return "Person added successfully";
+        return person.getFirstName() + " " + person.getLastName() + " added successfully";
     }
 
     @GetMapping("/persons")
