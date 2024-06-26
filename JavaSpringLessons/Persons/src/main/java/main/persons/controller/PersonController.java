@@ -1,6 +1,6 @@
-package lesson32.main.controller;
+package main.persons.controller;
 
-import lesson32.main.dto.PersonDto;
+import main.persons.dto.PersonDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

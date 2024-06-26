@@ -1,6 +1,6 @@
-package lesson32.main.dto;
+package main.persons.dto;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
 public class PersonDto {
