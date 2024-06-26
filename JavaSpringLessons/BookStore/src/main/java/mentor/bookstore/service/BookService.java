@@ -14,13 +14,13 @@ import java.util.List;
 public class BookService {
     private final BookRepo bookRepo;
 
-    public Book createBook(BookDto bookDto) {
+    public void createBook(BookDto bookDto) {
         Book book = Book.builder()
                 .title(bookDto.getTitle())
                 .author(bookDto.getAuthor())
                 .price(bookDto.getPrice())
                 .build();
-        return bookRepo.save(book);
+        bookRepo.save(book);
     }
 
     public List<Book> getAllBooks() {
