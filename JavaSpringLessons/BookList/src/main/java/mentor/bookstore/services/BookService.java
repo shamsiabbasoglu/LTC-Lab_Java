@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping
 public class BookService {
-    private List<Book> books = new ArrayList<>();
+    private final List<Book> books = new ArrayList<>();
 
     @PostMapping
     public String addBook(String title, String author, Double price) {
