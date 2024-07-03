@@ -47,9 +47,8 @@ public class StudentService {
         StudentEntity studentEntity = studentRepo.findById(id).orElseThrow();
 
         // method to force modelMapper to skip ID field
-        modelMapper.typeMap(StudentDto.class, StudentEntity.class).addMappings(mapper -> {
-            mapper.skip(StudentEntity::setId);
-        });
+        modelMapper.typeMap(StudentDto.class, StudentEntity.class)
+                .addMappings(mapper -> mapper.skip(StudentEntity::setId));
 
         modelMapper.map(studentDto, studentEntity);
         return modelMapper.map(studentRepo.save(studentEntity), StudentDto.class);
