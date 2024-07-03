@@ -1,4 +1,4 @@
-package main.studentdata.Dto;
+package main.student.dto;
 
 import lombok.Builder;
 import lombok.Data;
