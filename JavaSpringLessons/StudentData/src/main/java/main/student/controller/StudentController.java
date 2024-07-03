@@ -2,7 +2,6 @@ package main.student.controller;
 
 import lombok.RequiredArgsConstructor;
 import main.student.dto.StudentDto;
-import main.student.entity.StudentEntity;
 import main.student.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
